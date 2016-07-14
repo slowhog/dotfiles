@@ -31,6 +31,14 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 
+if v:version >= 704
+    Plugin 'SirVer/ultisnips'
+else
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'garbas/vim-snipmate'
+endif
+
 " Keep Plugin commands between vundle#begin/end.
 
 " All of your Plugins must be added before the following line
@@ -72,20 +80,19 @@ set wrap
 set list
 set listchars=tab:»_,eol:¬,trail:¤
 
-set nu
+set rnu
 
 set et
 set ts=4
 set sw=4
 
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
 
 nmap <LEADER>n :NERDTreeToggle<CR>
 vmap <LEADER>c :w !xsel -i<CR><CR>
 nmap <LEADER>p :r !xsel -o<CR>
 
-set makeprg=javac\ -d\ /tmp\ -Xlint:rawtypes,cast\ src/share/classes/com/sun/imageio/plugins/jpeg/*.java
-set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 set guifont=Terminus:h16
 set noantialias
 
