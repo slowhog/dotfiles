@@ -31,13 +31,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 
-if v:version >= 704
-    Plugin 'SirVer/ultisnips'
-else
-    Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'tomtom/tlib_vim'
-    Plugin 'garbas/vim-snipmate'
-endif
 
 " Keep Plugin commands between vundle#begin/end.
 
@@ -62,12 +55,7 @@ let g:tmuxline_separators = {
 
 let base16colorspace=256
 
-if $BACKGROUND == 'light'
-    set bg=light
-else
-    set bg=dark
-endif
-colo $THEME
+source ~/.vimrc_background
 
 set nocp
 set nobackup
